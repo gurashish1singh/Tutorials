@@ -2,12 +2,17 @@
 Building a basic blog app using Flask
 '''
 from flask import Flask, render_template, url_for, flash, redirect
+from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, LoginForm
 
 # Initializing a flask app
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'b4e1625f044394f9b68507161f4f5e'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+
+# Initialized SQLAlchemy db
+db = SQLAlchemy(app)
 
 posts = [
     {

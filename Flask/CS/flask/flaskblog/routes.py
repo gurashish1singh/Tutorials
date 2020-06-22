@@ -1,18 +1,9 @@
 '''
-Building a basic blog app using Flask
 '''
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import RegistrationForm, LoginForm
-
-# Initializing a flask app
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'b4e1625f044394f9b68507161f4f5e'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-
-# Initialized SQLAlchemy db
-db = SQLAlchemy(app)
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Posts
 
 posts = [
     {
@@ -65,7 +56,3 @@ def login():
             flash('Login unsuccessfull. Please check username and password', 'danger')
 
     return render_template('login.html', title='Login to your account!', form=form)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)

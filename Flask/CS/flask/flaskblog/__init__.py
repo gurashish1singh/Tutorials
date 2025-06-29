@@ -11,4 +11,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 # To avoid circular import
-from flaskblog import routes
+from flaskblog import routes # noqa

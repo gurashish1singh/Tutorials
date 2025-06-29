@@ -33,5 +33,4 @@ constructers and self
 def count_primes(n1, n2):
 
     for i in range(n1, n2):
-
-        
+        ...
